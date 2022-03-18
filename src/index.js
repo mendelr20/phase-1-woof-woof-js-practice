@@ -65,25 +65,27 @@ fetch(Url)
         })
         })
     })
-    filterBtn.addEventListener('click', () => {
-        if (filterBtn.innerText === 'Filter good dogs: OFF'){
-            filterBtn.innerText = 'Filter good dogs: ON'
-            for (const dog of dogs){
-                if (dog.isGoodDog = true){
-                    const newSpan = document.createElement("span");
-                    dogBar.append(newSpan)
-                    newSpan.innerHTML = dog.name
-                }
-            }    
-        } else {
-            filterBtn.innerText = 'Filter good dogs: OFF'
-            for (const dog of dogs){
-                const newSpan = document.createElement("span");
-                dogBar.append(newSpan)
-                newSpan.innerHTML = dog.name
-            }
-        }
-    })
+    // filterBtn.addEventListener('click', () => {
+    //     if (filterBtn.innerText === 'Filter good dogs: OFF'){
+    //         filterBtn.innerText = 'Filter good dogs: ON'
+    //         dogBar.innerHTML = ''
+    //         for (const dog of dogs){
+    //             if (dog.isGoodDog = true){
+    //                 const newSpan = document.createElement("span");
+    //                 dogBar.append(newSpan)
+    //                 newSpan.innerHTML = dog.name
+    //             }
+    //         }    
+    //     } else {
+    //         filterBtn.innerText = 'Filter good dogs: OFF'
+    //         dogs.forEach((dog) => {
+    //             const newSpan = document.createElement("span");
+    //             dogBar.append(newSpan)
+    //             newSpan.innerHTML = dog.name
+    //         }
+    //         )
+    //     }
+    // })
 })
 })
 
