@@ -20,9 +20,11 @@ fetch(Url)
         btn.id = 'goodBad'
         btn.innerHTML = dog.isGoodDog
         info.append(img,h2, btn)
-        id = dog.id
-        btn.addEventListener('click', () => {
-            if(dog.isGoodDog === true){
+        let id = dog.id
+        let goodDog = dog.isGoodDog
+        btn.addEventListener('click', (event) => {
+            if(event.target.innerHTML === 'true'){
+                goodDog = false
                 fetch(`http://localhost:3000/pups/${id}`, {
                     method: "PATCH",
                     headers: {"Accept": "application/json",
@@ -34,9 +36,6 @@ fetch(Url)
                 .then(res => res.json())
                 .then((dog) => {
                     info.innerHTML = ''
-                    const img = document.createElement("img");
-                    const h2 = document.createElement("h2");
-                    const btn = document.createElement("button")
                     img.src = dog.image
                     h2.innerHTML = dog.name
                     btn.id = 'goodBad'
@@ -44,6 +43,7 @@ fetch(Url)
                     info.append(img,h2, btn)
                 })
             } else {
+                goodDog = true
                 fetch(`http://localhost:3000/pups/${id}`, {
                     method: "PATCH",
                     headers: {"Accept": "application/json",
@@ -55,9 +55,6 @@ fetch(Url)
                 .then(res => res.json())
                 .then((dog) => {
                     info.innerHTML = ''
-                    const img = document.createElement("img");
-                    const h2 = document.createElement("h2");
-                    const btn = document.createElement("button")
                     img.src = dog.image
                     h2.innerHTML = dog.name
                     btn.id = 'goodBad'
@@ -68,6 +65,13 @@ fetch(Url)
         })
         })
     })
-    
+    filterBtn.addEventListener('click', () => {
+        if (filterBtn.innerText === 'Filter good dogs: OFF'){
+            filterBtn.innerText = 'Filter good dogs: ON'
+
+        } else {
+            filterBtn.innerText = 'Filter good dogs: OFF'
+        }
+    })
 })
 })
