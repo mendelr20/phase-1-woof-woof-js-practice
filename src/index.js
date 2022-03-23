@@ -14,7 +14,6 @@ function fetchRequest(){
     .then(res => res.json())
     .then((dogs)=> {
         dogs.forEach((dog) => {
-            console.log('hey')
             newSpan = document.createElement("span");
             dogBar = document.getElementById('dog-bar')
             dogBar.append(newSpan)
